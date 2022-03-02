@@ -15,8 +15,7 @@ spec:
       labels:
         app: {{ template "fullname" . }}
     spec:
-      imagePullSecrets:
-      - name: {{ .Values.imagePullSecrets.name }}
+      serviceAccountName: pr-previews
       containers:
       - name: {{ .Chart.Name }}
         image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
