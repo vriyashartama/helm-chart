@@ -23,6 +23,11 @@ spec:
         imagePullPolicy: {{ .Values.image.pullPolicy }}
         ports:
         - containerPort: 3000
+        env:
+        - name: CONTENTFUL_ACCESSTOKEN
+          value: "zITNhRiUJeAEsdHs2PJTZeYsRw4KR_4qZBqLLr65ZL4"
+        - name: CONTENTFUL_SPACE
+          value: "y54ddyjdapgz"
         # livenessProbe:
         #   httpGet:
         #     path: /
