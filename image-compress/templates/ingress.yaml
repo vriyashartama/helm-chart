@@ -1,0 +1,25 @@
+{{- if .Values.ingress.enabled }}
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: {{ template "fullname" . }}
+  labels:
+    draft: {{ default "draft-app" .Values.draft }}
+    chart: "{{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}"
+spec:
+  entryPoints:
+    - https
+  routes:
+  - match: Host(`{{ .Values.ingress.host }}`)
+    kind: Rule
+    services:
+    - name: {{ template "fullname" . }}
+      port: 3000
+  tls:
+    certResolver: default
+    domains:
+    - main: pipeline.dev.vriyas.com
+      sans:
+      - '*.pipeline.dev.vriyas.com'
+{{- end}}
