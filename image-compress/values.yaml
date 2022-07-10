@@ -1,10 +1,10 @@
 image:
-  repository: registry.pipeline.dev.vriyas.com/private/aubrieta
+  repository: registry.pipeline.dev.vriyas.com/private/image-compress
   tag: latest
   pullPolicy: IfNotPresent
 ingress:
   enabled: true
-  host: aubrieta.pipeline.dev.vriyas.com
+  host: image-compress.pipeline.dev.vriyas.com
 resources:
   limits:
     cpu: 100m
